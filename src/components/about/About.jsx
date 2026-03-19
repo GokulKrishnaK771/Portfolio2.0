@@ -64,7 +64,7 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-4 mt-16 md:mt-auto">
+                    <div className="flex items-center gap-4 md:mt-auto">
                         <span className="text-[6rem] font-display text-[var(--color-amber)]">3+</span>
                         <span className="text-muted fontl-light text-p1 max-w-md">Years of<br />real work</span>
                     </div>

@@ -1,0 +1,7 @@
+const ArrowUpRightIcon = () => (
+    <svg height="20" width="20" fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.3367 7.845L6.16417 15.0175L4.98584 13.8392L12.1575 6.66667H5.83667V5H15.0033V14.1667H13.3367V7.845Z" fill="currentColor" />
+    </svg>
+);
+
+export default ArrowUpRightIcon

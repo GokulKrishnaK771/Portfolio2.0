@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SectionTitle from "../SectionTitle";
 import Tag from "../Tags";
+import { Link } from 'react-router-dom';
+import heroNew from '../../assets/inel/INEL newhomepage.png'
 
 export const UserIcon = () => (
     <svg height="18" width="18" fill="none" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -35,8 +37,8 @@ export const ChartIcon = () => (
 
 export const ArrowUpRightIcon = () => (
     <svg height="20" width="20" fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-	<path d="M13.3367 7.845L6.16417 15.0175L4.98584 13.8392L12.1575 6.66667H5.83667V5H15.0033V14.1667H13.3367V7.845Z" fill="currentColor"/>
-</svg>
+        <path d="M13.3367 7.845L6.16417 15.0175L4.98584 13.8392L12.1575 6.66667H5.83667V5H15.0033V14.1667H13.3367V7.845Z" fill="currentColor" />
+    </svg>
 );
 
 export const ChevronLeftIcon = () => (
@@ -68,12 +70,15 @@ export const ChevronRightIcon = () => (
 const PROJECTS_DATA = [
     {
         id: 1,
-        title: "Project Title Lorem Ipsum",
-        description: "Full corporate website redesign for an NSE-listed automotive manufacturer — designed and built solo.",
+        title: "India Nippon Electricals- Website Revamp",
+        description: "Full corporate website redesign for an NSE-listed automotive manufacturer - designed and built solo.",
         tags: ["Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum"],
         role: "UI/UX Designer",
-        duration: "8 Months",
+        duration: "2-3 Months",
         impact: "% impact or anything impacted",
+        caseStudyUrl: '/casestudy/india-nippon',
+        liveSiteUrl: 'https://indianippon.com',
+        image: heroNew,
     },
     {
         id: 2,
@@ -104,15 +109,16 @@ const FeaturedProjects = () => {
     const activeProject = PROJECTS_DATA[activeIndex];
 
     return (
-        <section id="projects" className="mx-30 py-20">
-            <div className="mb-16">
-                <p className="text-p1 font-body text-secondary">PROJECTS</p>
+        <section id="projects" className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-30 py-12 sm:py-16 md:py-20">
+            <div className="mb-10 sm:mb-12 md:mb-16">
+                {/* section-label replaces text-p1 here — "PROJECTS" is a label, not body copy */}
+                <p className="section-label">PROJECTS</p>
                 <SectionTitle title="Featured Works" />
             </div>
 
-            <div className="mt-20 mx">
+            <div className="mt-10 sm:mt-16 md:mt-20">
                 {/* Carousel Container */}
-                <div className="relative w-full max-w-[650px] mx-auto h-[250px] sm:h-[350px] md:h-[400px] flex justify-center items-center perspective-1000">
+                <div className="relative w-full max-w-[320px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[650px] mx-auto h-[200px] sm:h-[300px] md:h-[360px] lg:h-[400px] flex justify-center items-center perspective-1000">
                     {PROJECTS_DATA.map((project, index) => {
                         let offset = index - activeIndex;
                         const total = PROJECTS_DATA.length;
@@ -133,13 +139,13 @@ const FeaturedProjects = () => {
                             transformStyle = 'translateX(0) scale(1)';
                             opacityClass = 'opacity-100 pointer-events-auto';
                             zIndex = '10';
-                            bgClass = 'bg-gradient-to-br from-amber-700/60 to-black/90 border-amber-500/60 shadow-[0_0_50px_rgba(249,115,22,0.1)]';
+                            bgClass = 'border-amber-500/60 shadow-[0_0_50px_rgba(249,115,22,0.1)]';
                         } else if (isPrev) {
-                            transformStyle = 'translateX(-65%) scale(0.85)';
+                            transformStyle = 'translateX(-60%) scale(0.85)';
                             opacityClass = 'opacity-60 pointer-events-auto cursor-pointer hover:opacity-80';
                             zIndex = '0';
                         } else if (isNext) {
-                            transformStyle = 'translateX(65%) scale(0.85)';
+                            transformStyle = 'translateX(60%) scale(0.85)';
                             opacityClass = 'opacity-60 pointer-events-auto cursor-pointer hover:opacity-80';
                             zIndex = '0';
                         } else {
@@ -149,59 +155,105 @@ const FeaturedProjects = () => {
                         return (
                             <div
                                 key={project.id}
-                                className={`absolute w-full h-full rounded-[24px] md:rounded-[32px] border transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-end p-6 md:p-8 backdrop-blur-md ${bgClass} ${opacityClass}`}
+                                className={`absolute w-full h-full rounded-[20px] sm:rounded-[24px] md:rounded-[32px] border transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-end p-4 sm:p-6 md:p-8 backdrop-blur-md ${bgClass} ${opacityClass}`}
                                 style={{ transform: transformStyle, zIndex }}
                                 onClick={() => {
                                     if (isPrev || isNext) setActiveIndex(index);
                                 }}
                             >
+                                {project.image && (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="absolute inset-0 w-full h-full object-cover rounded-[20px] sm:rounded-[24px] md:rounded-[32px]"
+                                    />
+                                )}
+
+                                {/* Overlay gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-[20px] sm:rounded-[24px] md:rounded-[32px]" />
+
+                                {/* Project name on card */}
+                                {isActive && (
+                                    <div className="relative z-10">
+                                        <p className="font-bold text-white text-sm sm:text-base md:text-lg leading-snug">{project.title}</p>
+                                    </div>
+                                )}
                             </div>
                         );
                     })}
                 </div>
 
                 {/* Active Project Details */}
-                <div className="mt-16 text-center max-w-3xl mx-auto flex flex-col items-center">
-                    <h2 className="text-3xl sm:text-4xl md:text-[44px] font-body font-medium text-white mb-6 transition-all duration-500">
+                <div className="mt-8 sm:mt-10 text-center max-w-3xl mx-auto flex flex-col items-center px-4 sm:px-6">
+                    {/* Title: clamp from 22px mobile → 44px desktop, using font-bold token */}
+                    <h2
+                        className="font-bold text-white mb-4 sm:mb-6 transition-all duration-500 leading-tight"
+                        style={{ fontSize: 'clamp(1.375rem, 4vw, 2.75rem)' }}
+                    >
                         {activeProject.title}
                     </h2>
 
-                    <p className="text-p1 text-muted font-light md:text-lg mb-8 font-body max-w-2xl leading-relaxed">
+                    {/* Description: clamp from 14px mobile → 18px desktop, bypassing text-p1 (24px) */}
+                    <p
+                        className="text-muted font-light mb-6 sm:mb-8 font-body max-w-2xl leading-relaxed"
+                        style={{ fontSize: 'clamp(0.875rem, 2vw, 1.125rem)' }}
+                    >
                         {activeProject.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-8">
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
                         {activeProject.tags.map((tag, index) => (
                             <Tag key={index} label={tag} />
                         ))}
                     </div>
 
-                    {/* Meta details */}
-                    <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-xs md:text-lg text-muted mb-10 font-body">
-                        <div className="flex items-center gap-4">
+                    {/* Meta details: clamp from 12px → 18px, using --font-body token */}
+                    <div
+                        className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 text-muted mb-5 sm:mb-6 font-body"
+                        style={{ fontSize: 'clamp(0.75rem, 1.5vw, 1.125rem)' }}
+                    >
+                        <div className="flex items-center gap-2 sm:gap-3">
                             <UserIcon /> {activeProject.role}
                         </div>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 sm:gap-3">
                             <ClockIcon /> {activeProject.duration}
                         </div>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 sm:gap-3">
                             <ChartIcon /> {activeProject.impact}
                         </div>
                     </div>
 
-                    {/* Actions */}
-                    <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-                        <a href={activeProject.caseStudyUrl || "#"} className="btn-primary">
+                    {/* Actions — override btn-primary / btn-secondary padding & font-size responsively */}
+                    <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+                        <Link
+                            to={activeProject.caseStudyUrl || "#"}
+                            className="btn-primary"
+                            style={{
+                                fontSize: 'clamp(0.8125rem, 1.5vw, 1.125rem)',
+                                padding: 'clamp(8px, 1.2vw, 11px) clamp(14px, 2vw, 22px)',
+                            }}
+                        >
                             View Case Study <ArrowUpRightIcon />
-                        </a>
-                        <a href={activeProject.liveSiteUrl || "#"} className="btn-secondary bg-[var(--color-text-secondary)] text-[var(--color-text-muted)]">
+                        </Link>
+                        <a
+                            href={activeProject.liveSiteUrl || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-secondary"
+                            style={{
+                                fontSize: 'clamp(0.8125rem, 1.5vw, 1.125rem)',
+                                padding: 'clamp(8px, 1.2vw, 11px) clamp(14px, 2vw, 22px)',
+                                color: 'var(--color-text-muted)',
+                                borderColor: 'var(--color-text-secondary)',
+                            }}
+                        >
                             Live Site <ArrowUpRightIcon />
                         </a>
                     </div>
 
                     {/* Indicators */}
-                    <div className="flex items-center justify-center gap-3">
+                    <div className="flex items-center justify-center gap-2 sm:gap-3">
                         <button
                             onClick={handlePrev}
                             className="text-[#555] hover:text-white transition-colors p-2"
@@ -210,12 +262,12 @@ const FeaturedProjects = () => {
                             <ChevronLeftIcon />
                         </button>
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 sm:gap-3">
                             {PROJECTS_DATA.map((_, i) => (
                                 <button
                                     key={i}
                                     onClick={() => setActiveIndex(i)}
-                                    className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'w-8 bg-white/60' : 'w-2 bg-[#333] hover:bg-white/40'}`}
+                                    className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'w-6 sm:w-8 bg-white/60' : 'w-2 bg-[#333] hover:bg-white/40'}`}
                                     aria-label={`Go to project ${i + 1}`}
                                 />
                             ))}

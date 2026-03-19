@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const RotatingBadge = () => {
@@ -15,7 +15,7 @@ const RotatingBadge = () => {
 
   return (
     <div className="flex items-center justify-center p-4"> {/* Container padding */}
-      <div ref={badgeRef} className="relative w-100 h-100 select-none">
+      <div ref={badgeRef} className="relative w-50 h-50 md:w-100 md:h-100 select-none">
         <svg width="" height="" viewBox="0 0 184 184" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="91.787" cy="91.787" r="91.787" fill="black"/>
             <path d="M118.225 92.3214C98.9939 95.4838 95.5751 99.501 93.011 122.92C92.9255 123.689 91.8144 123.689 91.7289 122.92C89.1648 99.501 85.7459 95.5693 66.5149 92.3214C65.7457 92.2359 65.7457 91.1248 66.5149 91.0393C85.7459 87.8769 89.1648 83.9452 91.7289 60.5261C91.8144 59.7569 92.9255 59.7569 93.011 60.5261C95.5751 83.9452 98.9939 87.7914 118.225 91.0393C118.909 91.1248 118.909 92.1505 118.225 92.3214Z" fill="#FF9000"/>
