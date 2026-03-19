@@ -7,9 +7,10 @@ import Footer from './components/footer/Footer'
 import { Routes, Route } from 'react-router-dom'
 import CaseStudyINEL from './components/casestudy/CaseStudyINEL'
 import MarqueeScroll from './components/MarqueeScroll'
+import { Fragment } from 'react'
 
 const Home = () => (
-  <>
+  <Fragment className="overflow-x-hidden">
     <Navbar />
     <HeroSection />
     <MarqueeScroll />
@@ -17,7 +18,7 @@ const Home = () => (
     <About />
     <Experience />
     <Footer />
-  </>
+  </Fragment>
 )
 
 const App = () => {
