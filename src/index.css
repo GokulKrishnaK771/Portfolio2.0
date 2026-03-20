@@ -1,16 +1,23 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Bebas Neue';
-  src: url('/src/assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-family: 'Bebas Neue Regular';
+  src: url('/src/assets/fonts/BebasNeue-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Bebas Neue';
-  src: url('/src/assets/fonts/BebasNeue-Bold.ttf') format('truetype');
+  font-family: 'Bebas Neue Bold';
+  src: url('/src/assets/fonts/BebasNeue-Bold.otf') format('opentype');
   font-weight: bold;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'Bebas Neue Book';
+  src: url('/src/assets/fonts/BebasNeue-Book.otf') format('opentype');
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -42,7 +49,9 @@
 
 /* ─── Design Tokens ─────────────────────────────────── */
 :root {
-  --font-display: 'Bebas Neue', sans-serif;
+  --font-display: 'Bebas Neue Regular', sans-serif;
+  --font-display-bold: 'Bebas Neue Bold', sans-serif;
+  --font-display-book: 'Bebas Neue Book', sans-serif;
   --font-body: 'SuisseRegular', sans-serif;
   --font-bold: 'SuisseBold', sans-serif;
   --font-light: 'SuisseLight', sans-serif;
@@ -113,6 +122,7 @@ img { max-width: 100%; display: block; }
 /* ─── Typography ────────────────────────────────────── */
 .font-display { font-family: var(--font-display); }
 .font-display-bold { font-family: var(--font-display-bold); }
+.font-display-book { font-family: var(--font-display-book); }
 .font-body { font-family: var(--font-body); }
 .font-bold { font-family: var(--font-bold); }
 .font-light { font-family: var(--font-light); }
