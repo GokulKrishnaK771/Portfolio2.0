@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import SectionTitle from "../SectionTitle";
 import Tag from "../Tags";
 import { Link } from 'react-router-dom';
@@ -102,23 +102,62 @@ const PROJECTS_DATA = [
 
 const FeaturedProjects = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const dragStartX = useRef(null);
+    const isDragging = useRef(false);
 
     const handleNext = () => setActiveIndex(prev => (prev + 1) % PROJECTS_DATA.length);
     const handlePrev = () => setActiveIndex(prev => (prev - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length);
 
+    const onMouseDown = (e) => {
+        dragStartX.current = e.clientX;
+        isDragging.current = false;
+    };
+    const onMouseMove = (e) => {
+        if (dragStartX.current === null) return;
+        if (Math.abs(e.clientX - dragStartX.current) > 5) isDragging.current = true;
+    };
+    const onMouseUp = (e) => {
+        if (dragStartX.current === null) return;
+        const diff = dragStartX.current - e.clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? handleNext() : handlePrev();
+        dragStartX.current = null;
+        setTimeout(() => { isDragging.current = false; }, 0);
+    };
+    const onMouseLeave = () => {
+        dragStartX.current = null;
+        isDragging.current = false;
+    };
+
+    const onTouchStart = (e) => {
+        dragStartX.current = e.touches[0].clientX;
+    };
+    const onTouchEnd = (e) => {
+        if (dragStartX.current === null) return;
+        const diff = dragStartX.current - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? handleNext() : handlePrev();
+        dragStartX.current = null;
+    };
+
     const activeProject = PROJECTS_DATA[activeIndex];
 
     return (
-        <section id="projects" className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-30 py-12 sm:py-16 md:py-20">
+        <section id="projects" className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-30 py-12 sm:py-16 md:py-20 overflow-hidden">
             <div className="mb-10 sm:mb-12 md:mb-16">
-                {/* section-label replaces text-p1 here — "PROJECTS" is a label, not body copy */}
                 <p className="section-label">PROJECTS</p>
                 <SectionTitle title="Featured Works" />
             </div>
 
             <div className="mt-10 sm:mt-16 md:mt-20">
-                {/* Carousel Container */}
-                <div className="relative w-full max-w-[320px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[650px] mx-auto h-[200px] sm:h-[300px] md:h-[360px] lg:h-[400px] flex justify-center items-center perspective-1000">
+                {/* Carousel */}
+                <div
+                    className="relative w-full max-w-[320px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[650px] mx-auto h-[200px] sm:h-[300px] md:h-[360px] lg:h-[400px] flex justify-center items-center perspective-1000 cursor-grab active:cursor-grabbing select-none"
+                    onMouseDown={onMouseDown}
+                    onMouseMove={onMouseMove}
+                    onMouseUp={onMouseUp}
+                    onMouseLeave={onMouseLeave}
+                    onTouchStart={onTouchStart}
+                    onTouchEnd={onTouchEnd}
+                >
                     {PROJECTS_DATA.map((project, index) => {
                         let offset = index - activeIndex;
                         const total = PROJECTS_DATA.length;
@@ -158,21 +197,17 @@ const FeaturedProjects = () => {
                                 className={`absolute w-full h-full rounded-[20px] sm:rounded-[24px] md:rounded-[32px] border transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-end p-4 sm:p-6 md:p-8 backdrop-blur-md ${bgClass} ${opacityClass}`}
                                 style={{ transform: transformStyle, zIndex }}
                                 onClick={() => {
-                                    if (isPrev || isNext) setActiveIndex(index);
+                                    if (!isDragging.current && (isPrev || isNext)) setActiveIndex(index);
                                 }}
                             >
                                 {project.image && (
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="absolute inset-0 w-full h-full object-cover rounded-[20px] sm:rounded-[24px] md:rounded-[32px]"
+                                        className="absolute inset-0 w-full h-full object-cover rounded-[20px] sm:rounded-[24px] md:rounded-[32px] pointer-events-none"
                                     />
                                 )}
-
-                                {/* Overlay gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-[20px] sm:rounded-[24px] md:rounded-[32px]" />
-
-                                {/* Project name on card */}
                                 {isActive && (
                                     <div className="relative z-10">
                                         <p className="font-bold text-white text-sm sm:text-base md:text-lg leading-snug">{project.title}</p>
@@ -185,7 +220,6 @@ const FeaturedProjects = () => {
 
                 {/* Active Project Details */}
                 <div className="mt-8 sm:mt-10 text-center max-w-3xl mx-auto flex flex-col items-center px-4 sm:px-6">
-                    {/* Title: clamp from 22px mobile → 44px desktop, using font-bold token */}
                     <h2
                         className="font-bold text-white mb-4 sm:mb-6 transition-all duration-500 leading-tight"
                         style={{ fontSize: 'clamp(1.375rem, 4vw, 2.75rem)' }}
@@ -193,7 +227,6 @@ const FeaturedProjects = () => {
                         {activeProject.title}
                     </h2>
 
-                    {/* Description: clamp from 14px mobile → 18px desktop, bypassing text-p1 (24px) */}
                     <p
                         className="text-muted font-light mb-6 sm:mb-8 font-body max-w-2xl leading-relaxed"
                         style={{ fontSize: 'clamp(0.875rem, 2vw, 1.125rem)' }}
@@ -201,14 +234,12 @@ const FeaturedProjects = () => {
                         {activeProject.description}
                     </p>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
                         {activeProject.tags.map((tag, index) => (
                             <Tag key={index} label={tag} />
                         ))}
                     </div>
 
-                    {/* Meta details: clamp from 12px → 18px, using --font-body token */}
                     <div
                         className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 text-muted mb-5 sm:mb-6 font-body"
                         style={{ fontSize: 'clamp(0.75rem, 1.5vw, 1.125rem)' }}
@@ -224,7 +255,6 @@ const FeaturedProjects = () => {
                         </div>
                     </div>
 
-                    {/* Actions — override btn-primary / btn-secondary padding & font-size responsively */}
                     <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
                         <Link
                             to={activeProject.caseStudyUrl || "#"}
@@ -236,8 +266,8 @@ const FeaturedProjects = () => {
                         >
                             View Case Study <ArrowUpRightIcon />
                         </Link>
-                        <a
-                            href={activeProject.liveSiteUrl || "#"}
+                        
+                           <a href={activeProject.liveSiteUrl || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-secondary"
@@ -252,7 +282,6 @@ const FeaturedProjects = () => {
                         </a>
                     </div>
 
-                    {/* Indicators */}
                     <div className="flex items-center justify-center gap-2 sm:gap-3">
                         <button
                             onClick={handlePrev}
@@ -261,7 +290,6 @@ const FeaturedProjects = () => {
                         >
                             <ChevronLeftIcon />
                         </button>
-
                         <div className="flex items-center gap-2 sm:gap-3">
                             {PROJECTS_DATA.map((_, i) => (
                                 <button
@@ -272,7 +300,6 @@ const FeaturedProjects = () => {
                                 />
                             ))}
                         </div>
-
                         <button
                             onClick={handleNext}
                             className="text-[#555] hover:text-white transition-colors p-2"
@@ -283,6 +310,7 @@ const FeaturedProjects = () => {
                     </div>
                 </div>
             </div>
+            
         </section>
     );
 };

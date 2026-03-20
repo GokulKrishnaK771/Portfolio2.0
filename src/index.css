@@ -8,6 +8,13 @@
 }
 
 @font-face {
+  font-family: 'Bebas Neue';
+  src: url('/src/assets/fonts/BebasNeue-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'SuisseRegular';
   src: url('/src/assets/fonts/SuisseIntlTrial-Regular.otf') format('opentype');
   font-weight: normal;
@@ -26,6 +33,10 @@
   src: url('/src/assets/fonts/SuisseIntlTrial-Light.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+}
+
+@theme {
+  --breakpoint-xs: 480px;
 }
 
 
@@ -71,9 +82,6 @@
   --transition-slow: 0.4s ease;
 }
 
-/* ─── Reset ─────────────────────────────────────────── */
-@import "tailwindcss";
-
 @layer base {
   *, *::before, *::after { 
     box-sizing: border-box; 
@@ -92,20 +100,19 @@
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
+
+
 /* ─── Typography ────────────────────────────────────── */
 .text-primarywhite { color: var(--color-text-primarywhite); }
 .text-primaryblack { color: var(--color-text-primaryblack); }
 .text-secondary { color: var(--color-text-secondary); }
 .text-muted { color: var(--color-text-muted); }
 
-.herotext{
-  text-align: center;
-  font-size: clamp(9rem, 18vw, 19rem);
-  line-height: 1;
-}
+
 
 /* ─── Typography ────────────────────────────────────── */
 .font-display { font-family: var(--font-display); }
+.font-display-bold { font-family: var(--font-display-bold); }
 .font-body { font-family: var(--font-body); }
 .font-bold { font-family: var(--font-bold); }
 .font-light { font-family: var(--font-light); }
@@ -147,7 +154,6 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-bold);
   font-size: var(--text-h2);
   color: var(--color-text-primarywhite);
-  border: 3px solid var(--color-border-blue);
 }
 
 .btn-primary {

@@ -15,11 +15,11 @@ const HeroSection = () => {
 
                 {/* Hero title */}
                 <div className="flex-1 flex flex-col items-center justify-center md:pt-10">
-                    <h1 className="font-display herotext leading-[1.1] text-center text-primarywhite">
+                    <h1 className="font-display 2xl:text-[19rem] lg:text-[15rem] md:text-[13rem] sm:text-[10rem] xs:text-[9rem] text-[6rem] leading-[1.1] text-center text-primarywhite">
                         Creative<br />Developer
                     </h1>
                     <img
-                        className="absolute bottom-0  w-[400px] md:w-[450px] lg:w-[500px] xl:w-[530px]"
+                        className="absolute bottom-0  w-[400px] md:w-[450px] lg:w-[480px] 2xl:w-[530px]"
                         src="hero.png"
                         alt="Gokul Krishna K Creative Developer"
                     />
