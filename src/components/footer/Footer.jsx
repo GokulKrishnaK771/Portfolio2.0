@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="w-full pt-32 flex flex-col items-center relative overflow-hidden">
+    <footer id="contact" className="w-full xl:pt-32 flex flex-col items-center relative overflow-hidden">
       <div className='grid grid-cols-1 md:grid-cols-2 mx-4 md:mx-30 items-center justify-center'>
         <div className='flex items-center justify-center order-1 md:order-2'>
           <RotatingBadge />
