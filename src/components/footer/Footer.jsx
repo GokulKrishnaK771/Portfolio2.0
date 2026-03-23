@@ -77,7 +77,7 @@ If you're building something great, let's talk.
       </div>
 
       <div className="w-full flex justify-center mt-2 overflow-hidden select-none pointer-events-none">
-        <h1 className="text-[20vw] text-secondary font-display leading-[.8] tracking-tighter text-center whitespace-nowrap">
+        <h1 className="text-[20vw] text-secondary font-display tracking-tighter text-center whitespace-nowrap">
           @gokulkrishnak
         </h1>
       </div>
