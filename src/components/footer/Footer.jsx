@@ -34,8 +34,8 @@ const Footer = () => {
           </h2>
 
           <p className="text-muted text-center md:text-left mt-6 text-p1 font-body max-w-3xl leading-relaxed">
-            I'm currently open to UI/UX Designer and Design Engineer roles.<br />
-            If you're building something great, let's talk.
+            I'm currently open to Frontend Developer and UI/UX Designer roles.<br />
+If you're building something great, let's talk.
           </p>
 
           <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-start items-center gap-4 mt-6">

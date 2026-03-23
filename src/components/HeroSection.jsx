@@ -1,6 +1,42 @@
 import OpportunityPill from "./herosection/OpportunityPill"
+import { useState, useEffect } from "react"
+
+const roles = ['Developer', 'Designer']
+
+const typeWriter = (words, typingSpeed = 80, deletingSpeed = 50, pauseTime = 2000) => {
+    const [text, setText] = useState('')
+    const [wordIndex, setWordIndex] = useState(0)
+    const [isDeleting, setIsDeleting] = useState(false)
+
+    useEffect(() => {
+        const currentWord = words[wordIndex]
+
+        const timeout = setTimeout(() => {
+            if (!isDeleting) {
+                setText(currentWord.substring(0, text.length + 1))
+                if (text.length + 1 === currentWord.length) {
+                    setTimeout(() => setIsDeleting(true), pauseTime)
+                }
+            } else {
+                setText(currentWord.substring(0, text.length - 1))
+                if (text.length - 1 === 0) {
+                    setIsDeleting(false)
+                    setWordIndex(prev => (prev + 1) % words.length)
+                }
+            }
+        }, isDeleting ? deletingSpeed : typingSpeed)
+
+        return () => clearTimeout(timeout)
+    }, [text, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pauseTime])
+
+    return text
+}
 
 const HeroSection = () => {
+    const displayText = typeWriter(roles)
+
+    const [firstWord] = displayText.split(' ')
+
     return (
         <section className="relative w-full overflow-hidden h-screen">
             <div className="absolute inset-0 -z-[1]">
@@ -16,7 +52,12 @@ const HeroSection = () => {
                 {/* Hero title */}
                 <div className="flex-1 flex flex-col items-center justify-center md:pt-10">
                     <h1 className="font-display-book 2xl:text-[19rem] lg:text-[15rem] md:text-[13rem] sm:text-[10rem] xs:text-[9rem] text-[6rem] leading-[1.1] text-center text-primarywhite">
-                        Creative<br />Developer
+                        Creative<br />
+                        <span>
+                            {firstWord || '\u00A0'}
+                            {/* <span className="animate-pulse">|</span> */}
+                        </span>
+
                     </h1>
                     <img
                         className="absolute bottom-0  w-[400px] md:w-[450px] lg:w-[480px] 2xl:w-[530px]"
