@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "react-activity-calendar/tooltips.css";
 
 @font-face {
   font-family: 'Bebas Neue Regular';

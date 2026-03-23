@@ -2,7 +2,9 @@ import { useState, useRef } from "react";
 import SectionTitle from "../SectionTitle";
 import Tag from "../Tags";
 import { Link } from 'react-router-dom';
-import heroNew from '../../assets/inel/INEL newhomepage.png'
+import inelheroNew from '../../assets/inel/INEL newhomepage.png'
+import genaicomphero from '../../assets/GenAIComp/genaicomphero.png'
+import pallanguzhihero from '../../assets/shilpashastra/pallanguzhihero.png'
 
 export const UserIcon = () => (
     <svg height="18" width="18" fill="none" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -71,32 +73,38 @@ const PROJECTS_DATA = [
     {
         id: 1,
         title: "India Nippon Electricals- Website Revamp",
-        description: "Full corporate website redesign for an NSE-listed automotive manufacturer - designed and built solo.",
-        tags: ["Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum"],
-        role: "UI/UX Designer",
+        description: "Full corporate website redesign for an NSE-listed automotive manufacturer - designed end-to-end in Figma, contributed to frontend implementation.",
+        tags: ["UI/UX Design", "Next.js", "Corporate Website"],
+        role: "UI/UX Designer & Frontend Contributor",
         duration: "2-3 Months",
-        impact: "% impact or anything impacted",
+        impact: "30% faster build time via reusable component library",
         caseStudyUrl: '/casestudy/india-nippon',
         liveSiteUrl: 'https://indianippon.com',
-        image: heroNew,
+        image: inelheroNew,
     },
     {
         id: 2,
-        title: "E-Commerce Platform Redesign",
-        description: "Revamped the user experience and interface for a major online retailer, focusing on conversion funnel optimization.",
-        tags: ["React", "TailwindCSS", "Framer Motion"],
+        title: "AI Component Builder",
+        description: "An AI-powered developer tool that generates reusable React components from natural language prompts - built with real API integration and production-ready state management.",
+        tags: ["React", "Redux", "Tailwind CSS", "AI API"],
         role: "Frontend Developer",
-        duration: "6 Months",
-        impact: "35% increase in checkout conversions",
+        duration: "Personal Project",
+        impact: "Generates React Tailwind Components",
+        caseStudyUrl: null,
+        liveSiteUrl: 'https://genaicomp.vercel.app',
+        image: genaicomphero,
     },
     {
         id: 3,
-        title: "Fintech Mobile Application",
-        description: "End-to-end product design for a personal finance management app allowing users to track expenses and investments.",
-        tags: ["Product Design", "React Native", "UX Research"],
-        role: "Lead Designer",
-        duration: "12 Months",
-        impact: "1M+ App Store downloads",
+        title: "Shilpashastra Pallanguzhi - 3D Landing Page",
+        description: "Landing page for a traditional South Indian board game brand featuring a 3D model of the Pallanguzhi board that moves through the canvas and rotates on scroll — built with Three.js and GSAP.",
+        tags: ["Three.js", "GSAP", "React", "Tailwind CSS"],
+        role: "Designer & Developer",
+        duration: "Personal Project",
+        impact: "3D scroll interaction",
+        caseStudyUrl: null,
+        liveSiteUrl: 'https://shilpashastra-pallanguzhi-lp.vercel.app/',
+        image: pallanguzhihero,
     },
 ];
 
@@ -256,7 +264,7 @@ const FeaturedProjects = () => {
                     </div>
 
                     <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
-                        <Link
+                        {activeProject.caseStudyUrl && (<Link
                             to={activeProject.caseStudyUrl || "#"}
                             className="btn-primary"
                             style={{
@@ -265,9 +273,9 @@ const FeaturedProjects = () => {
                             }}
                         >
                             View Case Study <ArrowUpRightIcon />
-                        </Link>
-                        
-                           <a href={activeProject.liveSiteUrl || "#"}
+                        </Link>)}
+
+                        <a href={activeProject.liveSiteUrl || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-secondary"
@@ -310,7 +318,7 @@ const FeaturedProjects = () => {
                     </div>
                 </div>
             </div>
-            
+
         </section>
     );
 };

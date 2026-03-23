@@ -4,20 +4,28 @@ import GithubContributions from './GitHubContributions'
 import OpportunityPill from '../herosection/OpportunityPill'
 
 const Toolbox = [
-    "Figma",
-    "Adobe XD",
-    "Adobe Photoshop",
-    "Adobe Illustrator",
-    "React",
-    "Next.js",
-    "TailwindCSS",
-    "Redux",
-    "TypeScript",
-    "JavaScript",
-    "Git",
-    "GitHub",
-    "Framer Motion",
-    "API Intengration",    
+    'Figma',
+    'Adobe Photoshop',
+    'Adobe Illustrator',
+    'HTML5',
+    'CSS3',
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Next.js',
+    'Tailwind CSS',
+    'Redux',
+    'GSAP',
+    'Three.js',
+    'Framer Motion',
+    'REST APIs',
+    'Node.js',
+    'MongoDB',
+    'Express.js',
+    'Vercel',
+    'Jest',
+    'Postman',
+    'Selenium'
 ]
 
 const LocationIcon = () => (
@@ -40,11 +48,9 @@ const About = () => {
                 <div className="md:col-span-2 border border-white/10 rounded-[24px] p-8 md:p-10 flex flex-col">
                     <h3 className="text-secondary font-body text-p1 mb-6">Who I am</h3>
                     <p className="text-primarywhite font-light text-p1 leading-relaxed max-w-3xl">
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
-                        a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-                        looked up one of the more obscure Latin words, consectetur, from a Lorem
-                        Ipsum passage, and going through
+                        I'm a frontend developer with a UI/UX background - I don't just build interfaces, I design them. Most developers wait for a Figma file. I make the Figma file.
+                        I started in QA, which means I think about edge cases and broken states before they become someone else's problem. From there I moved into design, then into code - three years of real client work, including a full platform for India Nippon Electricals, an NSE-listed manufacturer.
+                        I build fast, design with intention, and ship things that actually work.
                     </p>
                 </div>
 

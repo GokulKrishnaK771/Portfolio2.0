@@ -143,7 +143,7 @@ export default function CaseStudyINEL() {
           {/* Role table */}
           <div className="grid grid-cols-4 gap-[5px] bg-[var(--color-amber)]/[0.06] rounded-xl overflow-hidden mb-12 max-sm:grid-cols-2">
             {[
-              { label: 'Role', value: 'UI/UX Designer | Frontend Developer' },
+              { label: 'Role', value: 'UI/UX Designer & Frontend Contributor' },
               { label: 'Duration', value: '2–3 Months' },
               { label: 'Year', value: '2024–25' },
               { label: 'Deliverable', value: 'Full Website' },
@@ -178,7 +178,7 @@ export default function CaseStudyINEL() {
             <span className="text-[var(--color-amber)] italic">Xtracut was engaged to redesign and rebuild the entire corporate website from scratch.</span>
           </BodyText>
           <BodyText>
-            I was the sole designer on this project - responsible for every page, from initial Figma wireframes through to final handoff and React implementation.
+            I was the sole designer on this project - responsible for every page, from initial Figma wireframes through to final design handoff and component library contribution.
           </BodyText>
         </div>
 
