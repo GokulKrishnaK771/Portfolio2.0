@@ -51,7 +51,7 @@ const HeroSection = () => {
 
                 {/* Hero title */}
                 <div className="flex-1 flex flex-col items-center justify-center md:pt-10">
-                    <h1 className="font-display-book 2xl:text-[19rem] lg:text-[15rem] md:text-[13rem] sm:text-[10rem] xs:text-[9rem] text-[6rem] leading-[1.1] text-center text-primarywhite">
+                    <h1 className="absolute top-50 sm:top-20 font-display-book 2xl:text-[19rem] lg:text-[15rem] md:text-[13rem] sm:text-[10rem] xs:text-[9rem] text-[6rem] leading-[1.1] text-center text-primarywhite">
                         Creative<br />
                         <span>
                             {firstWord || '\u00A0'}
@@ -60,17 +60,17 @@ const HeroSection = () => {
 
                     </h1>
                     <img
-                        className="absolute bottom-0  w-[400px] md:w-[450px] lg:w-[480px] 2xl:w-[530px]"
+                        className="absolute bottom-0  w-[350px] md:w-[400px] lg:w-[450px] xl:w-[500px] 2xl:w-[530px]"
                         src="hero.png"
                         alt="Gokul Krishna K Creative Developer"
                     />
                 </div>
 
                 {/* Bottom row */}
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 z-1 -mb-5 bottom-0">
-                    <div className="flex flex-col gap-2">
-                        <h4 className="text-h3 font-body text-primarywhite">Hi, I'm Gokul Krishna</h4>
-                        <p className="text-p1 font-body max-w-xs md:max-w-sm font-light text-primarywhite">
+                <div className="flex flex-col sm:flex-row sm:justify-between items-center sm:items-end gap-4 z-1 sm:-mb-5 -mb-15 bottom-0">
+                    <div className="flex flex-col gap-2 items-center sm:items-start">
+                        <h4 className="text-h3 font-body text-primarywhite sm:text-center text-left">Hi, I'm Gokul Krishna</h4>
+                        <p className="text-p1 font-body max-w-xs md:max-w-sm font-light text-primarywhite text-center sm:text-left">
                             Crafting digital experiences. Engineering them for the web.
                         </p>
                     </div>
@@ -80,9 +80,7 @@ const HeroSection = () => {
                             <span className="text-p2 font-body text-primarywhite">Open to new opportunities</span>
                         </div>
 
-                        <a href="resume/GokulKrishnaK_Resume.pdf"
-                            className="btn-primary self-start sm:self-auto"
-                        >
+                        <a href="resume/GokulKrishnaK_Resume.pdf" className="btn-primary self-start sm:self-auto" target="_blank" rel="noopener noreferrer">
                             <span className="text-p1 font-body">Download Resume</span>
                             <img src="arrow-slant.svg" alt="arrow-slant" />
                         </a>

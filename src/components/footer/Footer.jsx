@@ -39,7 +39,7 @@ If you're building something great, let's talk.
           </p>
 
           <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-start items-center gap-4 mt-6">
-            <a href="resume/GokulKrishnaK_Resume.pdf" className="btn-primary flex items-center justify-center">
+            <a href="resume/GokulKrishnaK_Resume.pdf" className="btn-primary flex items-center justify-center" target="_blank" rel="noopener noreferrer">
               <span className=" text-p1 font-body">Download Resume</span>
               <img src="arrow-slant.svg" alt="arrow-slant" />
             </a>
