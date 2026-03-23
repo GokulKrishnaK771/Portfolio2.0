@@ -38,7 +38,7 @@ const Footer = () => {
             If you're building something great, let's talk.
           </p>
 
-          <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 mt-6">
+          <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-start items-center gap-4 mt-6">
             <a href="resume/GokulKrishnaK_Resume.pdf" className="btn-primary flex items-center justify-center">
               <span className=" text-p1 font-body">Download Resume</span>
               <img src="arrow-slant.svg" alt="arrow-slant" />
@@ -69,14 +69,14 @@ const Footer = () => {
 
 
 
-      <div className="w-[95vw] mt-10 flex flex-col items-center mb-5">
+      <div className="w-[95vw] mt-10 flex flex-col items-center">
         <div className="w-[95vw] h-[1px] bg-[var(--color-text-secondary)] mb-6" />
-        <p className="text-secondary text-sm md:text-lg font-body text-left px-4 md:px-0">
+        <p className="text-secondary text-sm md:text-lg font-body text-center px-4 md:px-0">
           Designed & built by Gokul Krishna · ©2026
         </p>
       </div>
 
-      <div className="w-full flex justify-center mt-6 md:mt-2 overflow-hidden select-none pointer-events-none">
+      <div className="w-full flex justify-center mt-2 overflow-hidden select-none pointer-events-none">
         <h1 className="text-[20vw] text-secondary font-display leading-[.8] tracking-tighter text-center whitespace-nowrap">
           @gokulkrishnak
         </h1>

@@ -2,6 +2,7 @@ import SectionTitle from '../SectionTitle'
 import Tag from '../Tags'
 import GithubContributions from './GitHubContributions'
 import OpportunityPill from '../herosection/OpportunityPill'
+import GibliEmoji from './GibliEmoji'
 
 const Toolbox = [
     'Figma',
@@ -36,7 +37,7 @@ const LocationIcon = () => (
 
 const About = () => {
     return (
-        <section id="about" className="mx-4 md:mx-30 py-20">
+        <section id="about" className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-30 py-12 sm:py-16 md:py-20">
             <div className="mb-20">
                 <p className="text-p1 font-body text-secondary">ABOUT ME</p>
                 <SectionTitle title="The story behind the work" />
@@ -48,8 +49,8 @@ const About = () => {
                 <div className="md:col-span-2 border border-white/10 rounded-[24px] p-8 md:p-10 flex flex-col">
                     <h3 className="text-secondary font-body text-p1 mb-6">Who I am</h3>
                     <p className="text-primarywhite font-light text-p1 leading-relaxed max-w-3xl">
-                        I'm a frontend developer with a UI/UX background - I don't just build interfaces, I design them. Most developers wait for a Figma file. I make the Figma file.
-                        I started in QA, which means I think about edge cases and broken states before they become someone else's problem. From there I moved into design, then into code - three years of real client work, including a full platform for India Nippon Electricals, an NSE-listed manufacturer.
+                        I'm a frontend developer with a UI/UX background - I don't just design interfaces, I build them. Most designers hand off a Figma file. I ship the code too.
+                        I started in QA, which means I think about edge cases and broken states before they become someone else's problem. From there I moved into design, then into code - and now I take on freelance projects while actively looking for the right full-time role. Three years of real real work across automation testing, UI/UX design, and frontend development.
                         I build fast, design with intention, and ship things that actually work.
                     </p>
                 </div>
@@ -97,9 +98,10 @@ const About = () => {
                 </div>
 
                 {/* Current Mood */}
-                <div className="md:col-span-1 border border-white/10 rounded-[24px] p-8 md:p-10 flex flex-col min-h-[280px]">
+                <div className="relative  md:col-span-1 border border-white/10 rounded-[24px] p-8 md:p-10 flex flex-col min-h-[280px]">
                     <h3 className="text-secondary font-body text-p1 mb-6">Current Mood</h3>
                     {/* Content goes here */}
+                    <GibliEmoji />
                 </div>
 
                 {/* My Toolbox */}

@@ -8,15 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 const experiences = [
     {
         id: 1,
-        company: "Independent Projects",
+        company: "Freelance Designer & Developer",
         role: "Self-Employed",
         date: "Dec 2025 – Present",
         descriptions: [
-            "Built responsive web applications using React.js, JavaScript, and Tailwind CSS, delivering consistent experiences across desktop and mobile platforms.",
-            "Integrated RESTful APIs and implemented Redux-based state management, improving application data flow and maintainability",
-            "Created reusable React UI components used across multiple pages, reducing development duplication and improving maintainability.",
-            "Optimized frontend performance optimizations including lazy loading and code splitting, improving page load speed and rendering efficiency.",
-            "Utilized AI-assisted development tools to accelerate prototyping and streamline development workflows."
+            "Taking on freelance projects while going deep on frontend engineering. Designed and built the Pallanguzhi 3D landing page for Shilpashastra - from Figma layout to Three.js implementation with GSAP animations. Built and shipped the AI Component Builder - a live React tool that generates React,Tailwind UI components from natural language prompts using AI API integration and Redux state management."
         ]
     },
     {
@@ -25,11 +21,7 @@ const experiences = [
         role: "UI/UX Developer",
         date: "Aug 2024 - Dec 2025",
         descriptions: [
-            "Designed and delivered responsive, user-friendly websites and Landing pages for various clients, from educational institutions to corporate entities, including a full web platform for India Nippon Electricals.",
-            "Developed high-performance landing pages for marketing campaigns, improving page load speeds by 40% and contributing to a 15% increase in client conversions through optimized UI/UX.",
-            "Translated intricate Figma design systems into pixel-perfect, interactive components that ensured brand consistency for every client project.",
-            "Used a modular development approach, creating a reusable React component library for the team which helped reduce overall build times by 30%.",
-            "Optimized visual hierarchy and front-end application logic across client projects, focusing on providing smooth, intuitive interaction flows."
+            "Led the full redesign of India Nippon Electricals' corporate website - the most complex project I've worked on. Sole designer across every page, from Figma wireframes to design handoff, and contributed to building the React component library used across the project. Also shipped high-conversion landing pages for marketing campaigns and designed social media assets for corporate and education clients."
         ]
     },
     {
@@ -38,9 +30,8 @@ const experiences = [
         role: "Associate Engineer",
         date: "June 2022 - Aug 2024",
         descriptions: [
-            "Collaborated on the frontend development of an internal enterprise portal with UI/UX Designers, creating responsive UI components that helped employees easily access timesheet portals and company tools.",
-            "Worked alongside the team to connect frontend UI components with backend REST APIs, ensuring data was retrieved and displayed correctly across the application.",
-            "Performed UI testing during the redesign of an internal enterprise portal used by employees to access timesheet and internal tools, ensuring consistent rendering across browsers and devices."
+            "I performed UI and functional testing on Google Nest Hub display devices - validating interface behaviour across real hardware. Also built and ran automation test suites for web applications using Selenium, Java, TestNG, and Maven.",
+            "Two years of breaking software gave me something most designers and developers don't have - I instinctively think about what fails before I think about what works. That mindset shapes everything I build today."
         ]
     }
 ];
@@ -88,7 +79,7 @@ const Experience = () => {
     return (
         <section className="px-4 sm:px-8 md:px-16 lg:px-[7.5rem] py-20">
 
-            {/* Mobile title — static, only visible below md */}
+            {/* Mobile title - static, only visible below md */}
             <div className="xl:hidden mb-10">
                 <p className="section-label">CAREER PATH</p>
                 <SectionTitle title="The journey so far" />
@@ -96,13 +87,13 @@ const Experience = () => {
 
             <div className="grid grid-cols-5 items-start">
 
-                {/* Desktop sticky title — hidden on mobile */}
+                {/* Desktop sticky title - hidden on mobile */}
                 <div className="hidden xl:block lg:col-span-2 sticky top-24">
                     <p className="section-label">CAREER PATH</p>
                     <SectionTitle title="The journey so far" />
                 </div>
 
-                {/* Timeline — full width on mobile, 3 cols on md+ */}
+                {/* Timeline - full width on mobile, 3 cols on md+ */}
                 <div className="col-span-5 xl:col-span-3 text-primarywhite">
                     <div className="relative w-full md:ml-12 lg:ml-24" ref={timelineWrapperRef}>
 
@@ -136,9 +127,10 @@ const Experience = () => {
                                             <p className="text-p1 font-light text-muted">{exp.role} ● {exp.date}</p>
                                             <div className="flex flex-col gap-1 mt-1">
                                                 {exp.descriptions.map((desc, i) => (
-                                                    <p key={i} className="text-gray-400 text-[0.9rem] md:text-[1.2rem] leading-relaxed">
-                                                        {desc}
-                                                    </p>
+                                                    <div key={i} className="flex gap-2 text-gray-400 text-[1rem] md:text-[1.2rem] leading-relaxed">
+                                                        <span className="text-gray-500 mt-1.5 text-[10px]">●</span>
+                                                        <p>{desc}</p>
+                                                    </div>
                                                 ))}
                                             </div>
                                         </div>
