@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import inelheroNew from '../../assets/inel/INEL newhomepage.png'
 import genaicomphero from '../../assets/GenAIComp/genaicomphero.png'
 import pallanguzhihero from '../../assets/shilpashastra/pallanguzhihero.png'
+import creativeshero from '../../assets/creatives/creativeshero.png'
 
 export const UserIcon = () => (
     <svg height="18" width="18" fill="none" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -95,6 +96,19 @@ const PROJECTS_DATA = [
         image: genaicomphero,
     },
     {
+        id: 4,
+        title: "Social Media & Campaign Creatives",
+        description: "Campaign posters and social media creatives for real Clients Chennai Ortho, Acer, SRM Dx and many more",
+        tags: ["Adobe Photoshop", "Adobe Illustrator",],
+        role: "Visual Designer",
+        duration: "Xtracut",
+        impact: "High Engaging and Conversions Creatives",
+        caseStudyUrl: null,
+        liveSiteUrl: '/casestudy/creatives',
+        image: creativeshero
+        
+    },
+    {
         id: 3,
         title: "Shilpashastra Pallanguzhi - 3D Landing Page",
         description: "Landing page for a traditional South Indian board game brand featuring a 3D model of the Pallanguzhi board that moves through the canvas and rotates on scroll — built with Three.js and GSAP.",
@@ -106,18 +120,7 @@ const PROJECTS_DATA = [
         liveSiteUrl: 'https://shilpashastra-pallanguzhi-lp.vercel.app/',
         image: pallanguzhihero,
     },
-    {
-        id: 3,
-        title: "Social Media & Campaign Creatives",
-        description: "Campaign posters and social media creatives for real Clients Chennai Ortho, Acer, SRM Dx and many more",
-        tags: ["Adobe Photoshop", "Adobe Illustrator",],
-        role: "Visual Designer",
-        duration: "Xtracut",
-        impact: "High Engaging and Conversions Creatives",
-        caseStudyUrl: null,
-        liveSiteUrl: '/casestudy/creatives',
-        
-    },
+    
 ];
 
 const FeaturedProjects = () => {
