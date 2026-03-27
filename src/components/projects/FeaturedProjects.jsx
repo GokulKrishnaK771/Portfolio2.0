@@ -106,6 +106,18 @@ const PROJECTS_DATA = [
         liveSiteUrl: 'https://shilpashastra-pallanguzhi-lp.vercel.app/',
         image: pallanguzhihero,
     },
+    {
+        id: 3,
+        title: "Social Media & Campaign Creatives",
+        description: "Campaign posters and social media creatives for real Clients Chennai Ortho, Acer, SRM Dx and many more",
+        tags: ["Adobe Photoshop", "Adobe Illustrator",],
+        role: "Visual Designer",
+        duration: "Xtracut",
+        impact: "High Engaging and Conversions Creatives",
+        caseStudyUrl: null,
+        liveSiteUrl: '/casestudy/creatives',
+        
+    },
 ];
 
 const FeaturedProjects = () => {

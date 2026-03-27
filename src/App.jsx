@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 import CaseStudyINEL from './components/casestudy/CaseStudyINEL'
 import MarqueeScroll from './components/MarqueeScroll'
 import { Fragment } from 'react'
+import CreativesPage from './components/casestudy/CreativesPage'
 
 const Home = () => (
   <Fragment className="overflow-x-hidden">
@@ -25,6 +26,9 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+
+
+      <Route path="/casestudy/creatives" element={<CreativesPage />} />
       <Route path="/casestudy/india-nippon" element={<CaseStudyINEL />} />
     </Routes>
   )
