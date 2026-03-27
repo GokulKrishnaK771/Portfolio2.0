@@ -85,7 +85,7 @@ export default function CreativesPage() {
       </nav> */}
 
       {/* Header */}
-      <div className=" bg-gradient-to-b from-[rgba(180,80,0,0.1)] to-transparent">
+      <div className="bg-gradient-to-b from-[rgba(0,27,180,0.15)] to-transparent border-white/[0.06]">
         <div className="max-w-[1200px] mx-auto px-10 pt-16 pb-12">
 
           <div className="flex flex-wrap gap-2 mb-8">
